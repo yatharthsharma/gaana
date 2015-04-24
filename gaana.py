@@ -166,7 +166,7 @@ class gaana:
 		url = self._buildUrl(url_specific,params)
 		return simplejson.load(urllib2.urlopen(url))
 
- 	
+
  	def termsAndConditions(self
 			  			 ):
 
@@ -197,7 +197,7 @@ class gaana:
 
 	def recentUsers(self,
 			  	   limit = 10 ):
-	
+
 		params = {}
 
 		if limit:
@@ -253,6 +253,65 @@ class gaana:
 		url_specific = self.base_user_url + "type=registration"
 		url = self._buildUrl(url_specific,params)
 		print url
+		return simplejson.load(urllib2.urlopen(url
+
+
+	def fbLogin(	self,
+				   	fbtoken = None,
+				    fbid = None,
+				    fullname = None,
+				    fbrealtoken = None,
+				    email = None,
+				    dob = None,
+				    gender = None
+					 ):
+
+		params = {}
+
+		if fbtoken:
+			params["fbtoken"] = fbtoken
+		if fbid:
+			params["fbid"] = fbid
+		if fullname:
+			params["fullname"] = fullname
+		if fbrealtoken:
+			params["fbrealtoken"] = fbrealtoken
+		if email:
+			params["email"] = email
+		if dob:
+			params["dob"] = dob
+		if gender in ["male" , "female"]:
+			params["gender"] = gender
+
+		url_specific = self.base_user_url + "type=authenticate&subtype=fb"
+		url = self._buildUrl(url_specific,params)
+		print url
+		return simplejson.load(urllib2.urlopen(url))
+
+	def fbConnect(	self,
+				   	fbtoken = None,
+				    fbid = None,
+				    fullname = None,
+				    token = None,
+				    switchsocialasset = None,
+					 ):
+
+		params = {}
+
+		if fbtoken:
+			params["fbtoken"] = fbtoken
+		if fbid:
+			params["fbid"] = fbid
+		if fullname:
+			params["fullname"] = fullname
+		if token:
+			params["token"] = token
+		if switchsocialasset:
+			params["switchsocialasset"] = switchsocialasset
+
+		url_specific = self.base_user_url + "type=authenticate&subtype=fb_connect"
+		url = self._buildUrl(url_specific,params)
+		print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
@@ -267,7 +326,7 @@ class gaana:
 			params["username"] = username
 		if password:
 			params["password"] = password
-		
+
 
 		url_specific = self.base_user_url + "type=authenticate"
 		url = self._buildUrl(url_specific,params)
@@ -283,8 +342,8 @@ class gaana:
 
 		if email:
 			params["email"] = email
-		
-		
+
+
 
 		url_specific = self.base_user_url + "type=forgotpassword"
 		url = self._buildUrl(url_specific,params)
@@ -305,7 +364,7 @@ class gaana:
 			params["friend_id"] = friend_id
 		if is_friend_info:
 			params["is_friend_info"] = is_friend_info
-		
+
 
 		url_specific = self.base_user_url + "type=profile"
 		url = self._buildUrl(url_specific,params)
@@ -455,7 +514,7 @@ class gaana:
 					   subtype = None,
 					   id = None,
 					   title = None,
-					   
+
 			  ):
 
 		params = {}
@@ -482,7 +541,7 @@ class gaana:
 					   subtype = None,
 					   id = None,
 					   title = None,
-					   
+
 			  ):
 
 		params = {}
@@ -518,7 +577,7 @@ class gaana:
 			params["friend_id"] = friend_id
 		if is_friend_info:
 			params["is_friend_info"] = is_friend_info
-		
+
 
 		url_specific = self.base_user_url + "type=recent_heard"
 		url = self._buildUrl(url_specific,params)
@@ -540,14 +599,14 @@ class gaana:
 			params["friend_id"] = friend_id
 		if is_friend_info:
 			params["is_friend_info"] = is_friend_info
-		
+
 
 		url_specific = self.base_user_url + "type=recent_activity"
 		url = self._buildUrl(url_specific,params)
 		print url
 		return simplejson.load(urllib2.urlopen(url))
 
-	
+
 	def getGaanaFriends( self,
 				      		token = None,
 				     	    output_format = None,
@@ -598,7 +657,7 @@ class gaana:
 		url = self._buildUrl(url_specific,params)
 		print url
 		return simplejson.load(urllib2.urlopen(url))
-		
+
 
 	def referFriends( self,
 				     token = None,
@@ -732,6 +791,6 @@ class gaana:
 		for key,value in params.iteritems():
 			url += "&%s=%s" % (key,value)
 		return url
-		
+
 
 
