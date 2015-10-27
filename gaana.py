@@ -1,5 +1,15 @@
+#!/usr/bin/python
+
+ #A simple to use python wrapper for Gaana.com API.
+
+
 import urllib2
 import simplejson
+
+__author__ = "yatharth Sharma"
+__email__ = "yatharth.sharma@gmail.com"
+__version__ = "0.1"
+
 
 class gaana:
 
@@ -29,7 +39,7 @@ class gaana:
 
 		url_specific = self.base_url + "?type=song"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
@@ -108,7 +118,7 @@ class gaana:
 
 		url_specific = self.base_url + "?type=genre"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
@@ -215,6 +225,11 @@ class gaana:
 		url = self.base_url + "?type=language"
 		return simplejson.load(urllib2.urlopen(url))
 
+
+	# def __init__(self):
+	# 	self.base_url = "http://api.gaana.com/"
+	# 	self.base_user_url = "http://api.gaana.com/user.php?"
+
 	def getUserToken(self
 					):
 		url = self.base_user_url + "type=registrationtoken"
@@ -253,17 +268,17 @@ class gaana:
 		url_specific = self.base_user_url + "type=registration"
 		url = self._buildUrl(url_specific,params)
 		print url
-		return simplejson.load(urllib2.urlopen(url
+		return simplejson.load(urllib2.urlopen(url))
 
 
-	def fbLogin(	self,
-				   	fbtoken = None,
-				    fbid = None,
-				    fullname = None,
-				    fbrealtoken = None,
-				    email = None,
-				    dob = None,
-				    gender = None
+	def fbLogin(self,
+			   	fbtoken = None,
+			    fbid = None,
+			    fullname = None,
+			    fbrealtoken = None,
+			    email = None,
+			    dob = None,
+			    gender = None
 					 ):
 
 		params = {}
@@ -285,7 +300,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=authenticate&subtype=fb"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 	def fbConnect(	self,
@@ -311,7 +326,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=authenticate&subtype=fb_connect"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
@@ -330,7 +345,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=authenticate"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
@@ -347,7 +362,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=forgotpassword"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 	def getUserProfile(self,
@@ -368,7 +383,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=profile"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 	def getProfileImage(self,
@@ -382,7 +397,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=profile_image"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
@@ -413,7 +428,7 @@ class gaana:
 
 		url_specific = self.base_user_url+ "type=mysongs&subtype=favorites"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return urllib2.urlopen(url).read()
 
 	def myAlbums(self,
@@ -443,7 +458,7 @@ class gaana:
 
 		url_specific = self.base_user_url+ "type=myalbums&subtype=favorites"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return urllib2.urlopen(url).read()
 
 	def myArtists(self,
@@ -473,7 +488,7 @@ class gaana:
 
 		url_specific = self.base_user_url+ "type=myartists&subtype=favorites"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return urllib2.urlopen(url).read()
 
 
@@ -504,7 +519,7 @@ class gaana:
 
 		url_specific = self.base_user_url+ "type=myplaylists&subtype=favorites"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return urllib2.urlopen(url).read()
 
 
@@ -533,7 +548,7 @@ class gaana:
 
 		url_specific = self.base_user_url+ "type=favorite&actionstatus=1"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return urllib2.urlopen(url).read()
 
 	def removeFromFavorites(self,
@@ -560,7 +575,7 @@ class gaana:
 
 		url_specific = self.base_user_url+ "type=favorite&actionstatus=0"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return urllib2.urlopen(url).read()
 
 	def recentUserTracks(self,
@@ -581,7 +596,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=recent_heard"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
@@ -603,7 +618,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=recent_activity"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
@@ -621,7 +636,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=gaana_friends"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 	def getFbFriends( self,
@@ -638,7 +653,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=fb_friends"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 	def inviteFriends( self,
@@ -655,7 +670,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=invited_friends"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
@@ -676,7 +691,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=password_change"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
@@ -697,7 +712,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=createplaylist"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 	def addToPlaylist( self,
@@ -717,7 +732,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=addtoplaylist"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 	def deleteFromPlaylist( self,
@@ -737,7 +752,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=myplaylists&subtype=delete_tracks"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 	def updatePlaylist( self,
@@ -757,7 +772,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=myplaylists&subtype=edit_playlist"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 	def deletePlaylist( self,
@@ -777,7 +792,7 @@ class gaana:
 
 		url_specific = self.base_user_url + "type=myplaylists&subtype=delete_playlist"
 		url = self._buildUrl(url_specific,params)
-		print url
+		# print url
 		return simplejson.load(urllib2.urlopen(url))
 
 
